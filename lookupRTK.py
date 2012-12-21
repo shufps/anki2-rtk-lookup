@@ -20,7 +20,10 @@ import codecs
 
 srcField_name="Expression"
 dstField_name="RTK"
+
+# 2012-edition
 dataFile='rtk_4th_german.txt'
+#dataFile='rtk_6th_english.txt'
 
 heisig=dict()
 
@@ -29,6 +32,9 @@ def read_heisig():
 
 	f=codecs.open(dn+"/"+dataFile, encoding='utf-8')
 	for line in f:
+        # ignore comment line
+        if line.startswith('#'):
+            continue
 		p=line.split(";")
 		ch=unicode(p[0])[0]
 		heisig[ch]=[p[1],p[2]]
