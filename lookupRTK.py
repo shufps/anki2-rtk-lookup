@@ -32,9 +32,9 @@ def read_heisig():
 
 	f=codecs.open(dn+"/"+dataFile, encoding='utf-8')
 	for line in f:
-        # ignore comment line
-        if line.startswith('#'):
-            continue
+		# ignore comment line
+		if line.startswith('#'):
+			continue
 		p=line.split(";")
 		ch=unicode(p[0])[0]
 		heisig[ch]=[p[1],p[2]]
